@@ -7,4 +7,5 @@ target 'People' do
 
   # Pods for People
   pod 'SwiftLint'
+  pod 'KeychainAccess'
 end

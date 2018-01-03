@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, ViewCustomizable {
+class LoginViewController: UIViewController, ViewCustomizable, ViewIdentifiable {
     typealias MainView = LoginView
     let manager = LoginManager()
     

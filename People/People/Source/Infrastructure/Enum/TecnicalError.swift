@@ -11,4 +11,6 @@ import Foundation
 enum TecnicalError: Error {
     case invalidURL
     case requestError
+    case serialization
+    case invalidResponse
 }
