@@ -9,11 +9,11 @@
 import Foundation
 
 struct EmployeeCellViewModel {
-    let imgRequest:URLRequest
-    let name:NSAttributedString
-    let login:NSAttributedString
+    let imgRequest: URLRequest
+    let name: NSAttributedString
+    let login: NSAttributedString
     
-    init?(employee:Employee, imgRequest:URLRequest?) {
+    init?(employee: Employee, imgRequest: URLRequest?) {
         guard let name = employee.name else {
             return nil
         }
@@ -21,8 +21,8 @@ struct EmployeeCellViewModel {
             return nil
         }
         
-        self.name = NSAttributedString(string:name)
-        self.login = NSAttributedString(string:employee.login)
+        self.name = NSAttributedString(string: name)
+        self.login = NSAttributedString(string: employee.login)
         self.imgRequest = imgRequest
     }
     

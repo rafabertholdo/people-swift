@@ -11,6 +11,7 @@ import UIKit
 class SearchViewController: UIViewController, ViewIdentifiable, ViewCustomizable {
     typealias MainView = SearchView
     lazy var manager = EmployeeManager()
+    private(set) var selectedLogin: String? 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +33,17 @@ extension SearchViewController: SearchViewDelegate {
                 })
                 
                 weakSelf.mainView.employees = employeeViewModels
+            } catch BusinessError.expiredLogin {
+                weakSelf.dismiss(animated: true, completion: nil)
             } catch {
                 //todo - exibir o erro na tela
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    func didSelectEmployee(login: String) {
+        selectedLogin = login
+        performSegue(withIdentifier: Constants.ViewControllers.employee, sender: nil)
     }
 }

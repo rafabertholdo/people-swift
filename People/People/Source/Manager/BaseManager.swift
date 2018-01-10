@@ -8,7 +8,7 @@
 
 import Foundation
 
-open class BaseManager {
+open class BaseManager: NSObject {
     
     //MARK: Properties
     var operations: OperationQueue
@@ -20,7 +20,7 @@ open class BaseManager {
      
      - returns: an instance of BaseManager subclass.
      */
-    init() {
+    override init() {
         operations = OperationQueue()
     }
     

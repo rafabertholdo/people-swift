@@ -11,8 +11,9 @@ import UIKit
 typealias EmployeesUICallback = (@escaping () throws -> [Employee]) -> Void
 typealias EmployeeUICallback = (@escaping () throws -> Employee) -> Void
 
+@objcMembers
 class EmployeeManager: BaseManager {
-
+    
     lazy var business = EmployeeBusiness()
     
     func searchEmployees(_ searchString: String, completion: @escaping EmployeesUICallback) {
@@ -25,11 +26,17 @@ class EmployeeManager: BaseManager {
         }
     }
     
-    func getEmployee(user: String, completion: @escaping EmployeeUICallback) {
+    func getEmployee(user: String, completion: @escaping (Employee?, NSError?) -> Void) {
         operations.addOperation {
             self.business.getEmployee(user: user, completion: { (result) in
                 OperationQueue.main.addOperation {
-                    completion(result)
+                    do {
+                        let employee = try result()
+                        completion(employee, nil)
+                    } catch {
+                        completion(nil, NSError(domain: "", code: 666, userInfo: [NSLocalizedDescriptionKey: error.localizedDescription]))
+                    }
+                    
                 }
             })
         }

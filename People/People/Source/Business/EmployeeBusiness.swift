@@ -39,6 +39,10 @@ struct EmployeeBusiness {
                     return employee
                 })
                 completion { employees }
+            } catch TecnicalError.authenticationFailed {
+                let keychain = Keychain(service: Constants.keyService)
+                keychain[Constants.tokenService] = nil
+                completion { throw BusinessError.expiredLogin }
             } catch {
                 completion { throw error }
             }

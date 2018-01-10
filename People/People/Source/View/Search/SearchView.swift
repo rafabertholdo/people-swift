@@ -38,3 +38,10 @@ extension SearchView: UITableViewDataSource {
         return cell
     }    
 }
+
+extension SearchView: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let login = employees[indexPath.row].login.string
+        delegate?.didSelectEmployee(login: login)
+    }
+}

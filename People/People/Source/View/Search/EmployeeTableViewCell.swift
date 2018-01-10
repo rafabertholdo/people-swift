@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import Kingfisher
-//import Alamofire
+//import Kingfisher
+import AlamofireImage
 
 class EmployeeTableViewCell: UITableViewCell, ViewIdentifiable {
     @IBOutlet private weak var employeeImage: UIImageView!
@@ -18,14 +18,16 @@ class EmployeeTableViewCell: UITableViewCell, ViewIdentifiable {
     func setModel(model: EmployeeCellViewModel) {
         nameLabel.attributedText = model.name
         loginLabel.attributedText = model.login
-        /*
-        let modifier = AnyModifier { requests in
-            var r = request
-            r.setva
-        }
-        employeeImage.kf.setImage(with: <#T##Resource?#>)
         
-        employeeImage.kf.setImage(with: <#T##Resource?#>, placeholder: <#T##Placeholder?#>, options: [.requestModifier(ImageDownloadRequestModifier) .modified(<#T##ImageDownloadRequestModifier#>)]KingfisherOptionsInfo?, progressBlock: <#T##DownloadProgressBlock?##DownloadProgressBlock?##(Int64, Int64) -> ()#>, completionHandler: <#T##CompletionHandler?##CompletionHandler?##(Image?, NSError?, CacheType, URL?) -> ()#>).downloadTask?.ownerDownloader?.authenticationChallengeResponder
-*/
+        employeeImage.af_setImage(withURLRequest: model.imgRequest)
+        
+        //imagem com o kingfisher
+//        let modifier = AnyModifier { request in
+//            var r = request
+//            r.setValue(model.imgRequest.allHTTPHeaderFields?["Authorization"], forHTTPHeaderField: "Authorization")
+//            return r
+//        }
+//        employeeImage.kf.setImage(with: model.imgRequest.url, placeholder: nil, options: [.requestModifier(modifier)])
+        
     }
 }

@@ -7,5 +7,6 @@
 //
 
 protocol SearchViewDelegate: class {
-    func didSearch(string:String)
+    func didSearch(string: String)
+    func didSelectEmployee(login: String)
 }

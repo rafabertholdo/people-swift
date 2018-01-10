@@ -19,10 +19,11 @@ class LoginViewController: UIViewController, ViewCustomizable, ViewIdentifiable 
 }
 extension LoginViewController: LoginViewDelegate {
     func didTouchLogin(login: String, password: String) {
-        manager.login(user: login, password: password) { (result) in
+        manager.login(user: login, password: password) { [unowned self](result) in
             do {
                 let success = try result()
                 if success {
+                    self.performSegue(withIdentifier: SearchViewController.identifier, sender: nil)
                     print("passou")
                 } else {
                     print("else")

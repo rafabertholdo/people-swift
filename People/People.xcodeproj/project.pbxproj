@@ -14,6 +14,9 @@
 		2AE92C121FF287DD00D603C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AE92C101FF287DD00D603C9 /* LaunchScreen.storyboard */; };
 		2AE92C271FF2A79500D603C9 /* PeopleServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE92C261FF2A79500D603C9 /* PeopleServer.swift */; };
 		2AE92C291FF2AFDB00D603C9 /* TecnicalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE92C281FF2AFDB00D603C9 /* TecnicalError.swift */; };
+		6B8BCFB020066A4A00FD2E14 /* ControlFlowStoryboardSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8BCFAF20066A4A00FD2E14 /* ControlFlowStoryboardSegue.swift */; };
+		6B8BCFB320066EB100FD2E14 /* EmployeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8BCFB220066EB100FD2E14 /* EmployeeView.swift */; };
+		6B8BCFB7200671D700FD2E14 /* EmployeeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B8BCFB6200671D700FD2E14 /* EmployeeViewController.m */; };
 		6BC3882C1FFD2ABA00BF1027 /* invalidJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 6BC3882B1FFD2ABA00BF1027 /* invalidJson.json */; };
 		6BC388301FFD2C0300BF1027 /* EmployeeBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC3882F1FFD2C0300BF1027 /* EmployeeBusiness.swift */; };
 		6BC388331FFD2D6C00BF1027 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC388321FFD2D6C00BF1027 /* Constants.swift */; };
@@ -65,6 +68,11 @@
 		2AE92C261FF2A79500D603C9 /* PeopleServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleServer.swift; sourceTree = "<group>"; };
 		2AE92C281FF2AFDB00D603C9 /* TecnicalError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TecnicalError.swift; sourceTree = "<group>"; };
 		629FF105630DB551009B1B7B /* Pods_People.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_People.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B8BCFAF20066A4A00FD2E14 /* ControlFlowStoryboardSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlFlowStoryboardSegue.swift; sourceTree = "<group>"; };
+		6B8BCFB220066EB100FD2E14 /* EmployeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeView.swift; sourceTree = "<group>"; };
+		6B8BCFB4200671D700FD2E14 /* People-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "People-Bridging-Header.h"; sourceTree = "<group>"; };
+		6B8BCFB5200671D700FD2E14 /* EmployeeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmployeeViewController.h; sourceTree = "<group>"; };
+		6B8BCFB6200671D700FD2E14 /* EmployeeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmployeeViewController.m; sourceTree = "<group>"; };
 		6BC3882B1FFD2ABA00BF1027 /* invalidJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = invalidJson.json; sourceTree = "<group>"; };
 		6BC3882F1FFD2C0300BF1027 /* EmployeeBusiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeBusiness.swift; sourceTree = "<group>"; };
 		6BC388321FFD2D6C00BF1027 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -173,6 +181,7 @@
 		2AE92C1C1FF292B000D603C9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6B8BCFB120066E9A00FD2E14 /* Employee */,
 				6BC388401FFD5EC500BF1027 /* Search */,
 				6BE7F5A61FF4263C007C7981 /* Login */,
 			);
@@ -185,6 +194,9 @@
 				6BE7F5A21FF422C7007C7981 /* LoginViewController.swift */,
 				6BC3883A1FFD562400BF1027 /* LaunchViewController.swift */,
 				6BC3883C1FFD598300BF1027 /* SearchViewController.swift */,
+				6B8BCFAF20066A4A00FD2E14 /* ControlFlowStoryboardSegue.swift */,
+				6B8BCFB5200671D700FD2E14 /* EmployeeViewController.h */,
+				6B8BCFB6200671D700FD2E14 /* EmployeeViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -210,6 +222,7 @@
 		2AE92C211FF292EE00D603C9 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				6B8BCFB4200671D700FD2E14 /* People-Bridging-Header.h */,
 				6BC388311FFD2D5600BF1027 /* New Group */,
 				2AE92C071FF287DD00D603C9 /* AppDelegate.swift */,
 				2AE92C241FF2930C00D603C9 /* Extension */,
@@ -270,6 +283,14 @@
 				629FF105630DB551009B1B7B /* Pods_People.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6B8BCFB120066E9A00FD2E14 /* Employee */ = {
+			isa = PBXGroup;
+			children = (
+				6B8BCFB220066EB100FD2E14 /* EmployeeView.swift */,
+			);
+			path = Employee;
 			sourceTree = "<group>";
 		};
 		6BC388311FFD2D5600BF1027 /* New Group */ = {
@@ -410,6 +431,7 @@
 				TargetAttributes = {
 					2AE92C031FF287DD00D603C9 = {
 						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
 					6BD8E3861FFCF06B009E1953 = {
@@ -500,14 +522,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-People/Pods-People-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -542,12 +564,15 @@
 				6BC388301FFD2C0300BF1027 /* EmployeeBusiness.swift in Sources */,
 				6BD8E3961FFCF1A0009E1953 /* PeopleServerProtocol.swift in Sources */,
 				6BC388391FFD523D00BF1027 /* EmployeeManager.swift in Sources */,
+				6B8BCFB320066EB100FD2E14 /* EmployeeView.swift in Sources */,
 				6BE7F5A11FF4229A007C7981 /* LoginView.swift in Sources */,
 				6BC3883D1FFD598300BF1027 /* SearchViewController.swift in Sources */,
+				6B8BCFB020066A4A00FD2E14 /* ControlFlowStoryboardSegue.swift in Sources */,
 				2AE92C271FF2A79500D603C9 /* PeopleServer.swift in Sources */,
 				6BD8E39E1FFD03DE009E1953 /* Employee.swift in Sources */,
 				6BE7F5AB1FF42AAB007C7981 /* BaseManager.swift in Sources */,
 				6BC3883F1FFD59F600BF1027 /* ViewIdentifiable.swift in Sources */,
+				6B8BCFB7200671D700FD2E14 /* EmployeeViewController.m in Sources */,
 				6BC3883B1FFD562400BF1027 /* LaunchViewController.swift in Sources */,
 				6BC39B6320063BF000667EEE /* EmployeeCellViewModel.swift in Sources */,
 				6BC388421FFD5EF000BF1027 /* SearchView.swift in Sources */,
@@ -718,12 +743,15 @@
 			baseConfigurationReference = AA5A7575CB1E01C6EBD4F102 /* Pods-People.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2JFB7H5D45;
 				INFOPLIST_FILE = "$(SRCROOT)/People/Resource/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ciandt.People;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "People/Source/Infrastructure/People-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -734,12 +762,14 @@
 			baseConfigurationReference = 2531AE27D695B77E24F6CA3A /* Pods-People.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2JFB7H5D45;
 				INFOPLIST_FILE = "$(SRCROOT)/People/Resource/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ciandt.People;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "People/Source/Infrastructure/People-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

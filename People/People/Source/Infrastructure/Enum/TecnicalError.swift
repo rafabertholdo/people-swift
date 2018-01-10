@@ -13,4 +13,5 @@ enum TecnicalError: Error {
     case requestError
     case serialization
     case invalidResponse
+    case authenticationFailed
 }

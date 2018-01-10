@@ -103,6 +103,8 @@ struct PeopleServer: PeopleServerProtocol {
                     }
                     
                     completion { json as? [String: AnyObject] }
+                case 401:
+                    completion { throw TecnicalError.authenticationFailed }
                 default:
                     completion { throw TecnicalError.requestError }
                 }

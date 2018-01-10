@@ -10,4 +10,8 @@ struct Constants {
     static let keyService = "com.people.cit"
     static let tokenService = "token"
     static let keyPersonalInfo = "personal_info"
+    
+    struct ViewControllers {
+        static let employee = "EmployeeViewController"
+    }
 }
