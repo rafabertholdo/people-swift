@@ -24,7 +24,14 @@ extension SearchViewController: SearchViewDelegate {
             guard let weakSelf = self else { return }
             do {
                 let employees = try result()
-                weakSelf.mainView.employees = employees
+                let employeeViewModels = employees.map({ (employee) -> EmployeeCellViewModel? in
+                    let imgRequest = weakSelf.manager.requestForEmployeeImage(login: employee.login)
+                    return EmployeeCellViewModel(employee: employee, imgRequest: imgRequest)
+                }).filter({ (employee) -> Bool in
+                    return employee != nil
+                })
+                
+                weakSelf.mainView.employees = employeeViewModels
             } catch {
                 //todo - exibir o erro na tela
                 print(error.localizedDescription)

@@ -40,8 +40,6 @@ class EmployeeBusinessTests: XCTestCase {
                 XCTFail("usuário não encontrado")
             }
         }
-        
-        
     }
     
 }

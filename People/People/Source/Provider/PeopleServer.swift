@@ -49,7 +49,7 @@ struct PeopleServer: PeopleServerProtocol {
                 switch httpResponse.statusCode {
                 case 200...299:
                     guard let json = try JSONSerialization.jsonObject(with: dataResponse, options: .mutableLeaves) as? NSDictionary else {
-                        completion { throw TecnicalError.requestError }
+                        completion { throw TecnicalError.requestError } 
                         
                         return
                     }

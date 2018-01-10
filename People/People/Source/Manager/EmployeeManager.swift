@@ -8,6 +8,9 @@
 
 import UIKit
 
+typealias EmployeesUICallback = (@escaping () throws -> [Employee]) -> Void
+typealias EmployeeUICallback = (@escaping () throws -> Employee) -> Void
+
 class EmployeeManager: BaseManager {
 
     lazy var business = EmployeeBusiness()

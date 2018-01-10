@@ -1,15 +1,21 @@
 PODS:
+  - Alamofire (4.5.1)
   - KeychainAccess (3.1.0)
+  - Kingfisher (4.2.0)
   - SwiftLint (0.24.0)
 
 DEPENDENCIES:
+  - Alamofire
   - KeychainAccess
+  - Kingfisher
   - SwiftLint
 
 SPEC CHECKSUMS:
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   KeychainAccess: 94c5540b32eabf7bc32bfb976a268e8ea05fd6da
+  Kingfisher: 9ee7e788d8ba07c3f21ce0d43f33cec310a4f781
   SwiftLint: a014c92b4664e8b13f380f8640a51bb1733778ba
 
-PODFILE CHECKSUM: ed4b28e5ef9f71791c14fc662e9d04f5385c7ccf
+PODFILE CHECKSUM: 695859a91d6d9278ad35f2d53ecc860f8d68a69d
 
 COCOAPODS: 1.3.1

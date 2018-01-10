@@ -9,9 +9,6 @@
 import Foundation
 import KeychainAccess
 
-typealias EmployeesUICallback = (@escaping () throws -> [Employee]) -> Void
-typealias EmployeeUICallback = (@escaping () throws -> Employee) -> Void
-
 struct EmployeeBusiness {
     var provider: PeopleServerProtocol = PeopleServer()
     let kJsonKey = "data"
@@ -38,7 +35,7 @@ struct EmployeeBusiness {
                 let employees = try employeesArray.map({ (element) -> Employee in
                     let jsonData = try JSONSerialization.data(withJSONObject: element, options: .prettyPrinted)
                     let decoder = JSONDecoder()
-                    var employee: Employee = try decoder.decode(Employee.self, from: jsonData)
+                    let employee: Employee = try decoder.decode(Employee.self, from: jsonData)
                     return employee
                 })
                 completion { employees }

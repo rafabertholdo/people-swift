@@ -13,7 +13,7 @@ class SearchView: UIView {
     @IBOutlet private weak var employeeTableView: UITableView!
     
     weak var delegate: SearchViewDelegate?
-    var employees = [Employee]() {
+    var employees = [EmployeeCellViewModel!]() {
         didSet {
             employeeTableView.reloadData()
         }
@@ -34,6 +34,7 @@ extension SearchView: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: EmployeeTableViewCell.identifier) as? EmployeeTableViewCell else {
             fatalError("célula não encontrada")
         }
+        cell.setModel(model: employees[indexPath.row])
         return cell
     }    
 }

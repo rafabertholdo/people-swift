@@ -8,4 +8,6 @@ target 'People' do
   # Pods for People
   pod 'SwiftLint'
   pod 'KeychainAccess'
+  pod 'Kingfisher'
+  pod 'Alamofire'
 end
