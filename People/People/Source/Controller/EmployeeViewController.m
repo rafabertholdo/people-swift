@@ -23,6 +23,7 @@
 
 - (void)loadWithLogin:(NSString *)login {
     self.manager = [[EmployeeManager alloc] init];
+    
     [self.manager getEmployeeWithUser:login completion:^(Employee * _Nullable employee, NSError * _Nullable error) {
         if (error) {
             NSLog(@"%@", error.localizedDescription);

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-//import Kingfisher
 import AlamofireImage
 
 class EmployeeTableViewCell: UITableViewCell, ViewIdentifiable {
@@ -20,14 +19,5 @@ class EmployeeTableViewCell: UITableViewCell, ViewIdentifiable {
         loginLabel.attributedText = model.login
         
         employeeImage.af_setImage(withURLRequest: model.imgRequest)
-        
-        //imagem com o kingfisher
-//        let modifier = AnyModifier { request in
-//            var r = request
-//            r.setValue(model.imgRequest.allHTTPHeaderFields?["Authorization"], forHTTPHeaderField: "Authorization")
-//            return r
-//        }
-//        employeeImage.kf.setImage(with: model.imgRequest.url, placeholder: nil, options: [.requestModifier(modifier)])
-        
     }
 }

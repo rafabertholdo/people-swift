@@ -45,6 +45,10 @@
 		6BE7F5AF1FF42C34007C7981 /* LoginBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE7F5AE1FF42C34007C7981 /* LoginBusiness.swift */; };
 		6BE7F5B11FF42D09007C7981 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE7F5B01FF42D09007C7981 /* StringExtension.swift */; };
 		6BE7F5B31FF42F25007C7981 /* BusinessError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE7F5B21FF42F25007C7981 /* BusinessError.swift */; };
+		DA06F7C620482C9500751D36 /* ViewSpinnable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA06F7C520482C9500751D36 /* ViewSpinnable.swift */; };
+		DA1D2632204733FB00E77D35 /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1D2631204733FB00E77D35 /* DataExtension.swift */; };
+		DA1D263420473C2700E77D35 /* EmployeeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1D263320473C2700E77D35 /* EmployeeViewModel.swift */; };
+		DA1D263620473F3100E77D35 /* EmployeeSwiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1D263520473F3100E77D35 /* EmployeeSwiftViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +108,10 @@
 		6BE7F5B01FF42D09007C7981 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		6BE7F5B21FF42F25007C7981 /* BusinessError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessError.swift; sourceTree = "<group>"; };
 		AA5A7575CB1E01C6EBD4F102 /* Pods-People.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-People.debug.xcconfig"; path = "Pods/Target Support Files/Pods-People/Pods-People.debug.xcconfig"; sourceTree = "<group>"; };
+		DA06F7C520482C9500751D36 /* ViewSpinnable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSpinnable.swift; sourceTree = "<group>"; };
+		DA1D2631204733FB00E77D35 /* DataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
+		DA1D263320473C2700E77D35 /* EmployeeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeViewModel.swift; sourceTree = "<group>"; };
+		DA1D263520473F3100E77D35 /* EmployeeSwiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeSwiftViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +205,7 @@
 				6B8BCFAF20066A4A00FD2E14 /* ControlFlowStoryboardSegue.swift */,
 				6B8BCFB5200671D700FD2E14 /* EmployeeViewController.h */,
 				6B8BCFB6200671D700FD2E14 /* EmployeeViewController.m */,
+				DA1D263520473F3100E77D35 /* EmployeeSwiftViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -247,6 +256,7 @@
 			children = (
 				6BE7F5A41FF4242E007C7981 /* ViewCustomizable.swift */,
 				6BC3883E1FFD59F600BF1027 /* ViewIdentifiable.swift */,
+				DA06F7C520482C9500751D36 /* ViewSpinnable.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -255,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				6BE7F5B01FF42D09007C7981 /* StringExtension.swift */,
+				DA1D2631204733FB00E77D35 /* DataExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -289,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				6B8BCFB220066EB100FD2E14 /* EmployeeView.swift */,
+				DA1D263320473C2700E77D35 /* EmployeeViewModel.swift */,
 			);
 			path = Employee;
 			sourceTree = "<group>";
@@ -565,6 +577,7 @@
 				6BD8E3961FFCF1A0009E1953 /* PeopleServerProtocol.swift in Sources */,
 				6BC388391FFD523D00BF1027 /* EmployeeManager.swift in Sources */,
 				6B8BCFB320066EB100FD2E14 /* EmployeeView.swift in Sources */,
+				DA06F7C620482C9500751D36 /* ViewSpinnable.swift in Sources */,
 				6BE7F5A11FF4229A007C7981 /* LoginView.swift in Sources */,
 				6BC3883D1FFD598300BF1027 /* SearchViewController.swift in Sources */,
 				6B8BCFB020066A4A00FD2E14 /* ControlFlowStoryboardSegue.swift in Sources */,
@@ -573,6 +586,7 @@
 				6BE7F5AB1FF42AAB007C7981 /* BaseManager.swift in Sources */,
 				6BC3883F1FFD59F600BF1027 /* ViewIdentifiable.swift in Sources */,
 				6B8BCFB7200671D700FD2E14 /* EmployeeViewController.m in Sources */,
+				DA1D263620473F3100E77D35 /* EmployeeSwiftViewController.swift in Sources */,
 				6BC3883B1FFD562400BF1027 /* LaunchViewController.swift in Sources */,
 				6BC39B6320063BF000667EEE /* EmployeeCellViewModel.swift in Sources */,
 				6BC388421FFD5EF000BF1027 /* SearchView.swift in Sources */,
@@ -585,7 +599,9 @@
 				6BE7F5AD1FF42ADA007C7981 /* LoginManager.swift in Sources */,
 				6BE7F5A51FF4242E007C7981 /* ViewCustomizable.swift in Sources */,
 				2AE92C291FF2AFDB00D603C9 /* TecnicalError.swift in Sources */,
+				DA1D263420473C2700E77D35 /* EmployeeViewModel.swift in Sources */,
 				6BC388441FFD62CC00BF1027 /* SearchViewDelegate.swift in Sources */,
+				DA1D2632204733FB00E77D35 /* DataExtension.swift in Sources */,
 				6BE7F5B11FF42D09007C7981 /* StringExtension.swift in Sources */,
 				6BE7F5A81FF42663007C7981 /* LoginViewDelegate.swift in Sources */,
 			);

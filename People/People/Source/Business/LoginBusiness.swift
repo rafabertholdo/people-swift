@@ -28,25 +28,19 @@ struct LoginBusiness {
         }
         provider.employeeWithLogin(login: user, token: token) { (result) in
             do {
-                guard let userDictionary = try result() else {
+                guard let response = try result() else {
                     completion { throw TecnicalError.requestError }
                     return
                 }
-                guard let personalInfoDictionary = userDictionary[Constants.keyPersonalInfo] as? [String: AnyObject] else {
-                    completion { throw BusinessError.parse(key: Constants.keyPersonalInfo) }
-                    return
-                }
                 
-                let jsonData = try JSONSerialization.data(withJSONObject: personalInfoDictionary, options: .prettyPrinted)
                 let decoder = JSONDecoder()
-                let employee: Employee = try decoder.decode(Employee.self, from: jsonData)
+                let employee: Employee = try decoder.decode(Employee.self, from: response.data)
                 
                 guard user == employee.login else {
                     completion { throw BusinessError.invalidLogin }
                     return
                 }
-                
-                //adicionar no keychain
+            
                 let keychain = Keychain(service: Constants.keyService)
                 keychain[Constants.tokenService] = token
             

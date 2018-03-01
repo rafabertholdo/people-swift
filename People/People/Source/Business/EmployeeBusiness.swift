@@ -22,16 +22,18 @@ struct EmployeeBusiness {
         
         provider.searchEmployees(search: searchString, token: token) { (result) in
             do {
-                guard let searchDictionary = try result() else {
+                guard let httpResponse = try result() else {
                     completion { throw TecnicalError.invalidResponse }
                     return
                 }
+                
+                let searchDictionary = try httpResponse.data.toDictionary()
                 
                 guard let employeesArray = searchDictionary[self.kJsonKey] as? [AnyObject] else {
                     completion { throw BusinessError.parse(key: self.kJsonKey)}
                     return
                 }
-                // parecido com um for - https://medium.com/@abhimuralidharan/higher-order-functions-in-swift-filter-map-reduce-flatmap-1837646a63e8
+                
                 let employees = try employeesArray.map({ (element) -> Employee in
                     let jsonData = try JSONSerialization.data(withJSONObject: element, options: .prettyPrinted)
                     let decoder = JSONDecoder()
@@ -58,10 +60,14 @@ struct EmployeeBusiness {
         
         provider.employeeWithLogin(login: user, token: token) { (result) in
             do {
-                guard let userDictionary = try result() else {
+                guard let httpResponse = try result() else {
                     completion { throw TecnicalError.requestError }
                     return
                 }
+                
+                let userDictionary = try httpResponse.data.toDictionary()
+                print(userDictionary)
+                
                 guard let personalInfoDictionary = userDictionary[Constants.keyPersonalInfo] as? [String: AnyObject] else {
                     completion { throw BusinessError.parse(key: Constants.keyPersonalInfo) }
                     return

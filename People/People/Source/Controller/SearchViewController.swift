@@ -21,6 +21,8 @@ class SearchViewController: UIViewController, ViewIdentifiable, ViewCustomizable
 
 extension SearchViewController: SearchViewDelegate {
     func didSearch(string: String) {
+        mainView.employees = []
+        mainView.setLoadingScreen(view: mainView, navigationController: navigationController)
         manager.searchEmployees(string) { [weak self] (result) in
             guard let weakSelf = self else { return }
             do {
@@ -39,6 +41,7 @@ extension SearchViewController: SearchViewDelegate {
                 //todo - exibir o erro na tela
                 print(error.localizedDescription)
             }
+            weakSelf.mainView.removeLoadingScreen()
         }
     }
     

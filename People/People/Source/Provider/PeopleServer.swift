@@ -8,8 +8,8 @@
 
 import Foundation
 
-typealias EmployeeCallback = (() throws -> [String: AnyObject]?) -> Void
-typealias SearchCallback = (() throws -> [String: AnyObject]?) -> Void
+typealias NetworkResponse = (statusCode: Int, data: Data)
+typealias NetworkCallback = (() throws -> NetworkResponse?) -> Void
 
 struct PeopleServer: PeopleServerProtocol {
     // MARK: - Constants
@@ -18,7 +18,7 @@ struct PeopleServer: PeopleServerProtocol {
     private let authorizationValue = "Basic"
     
     // Public Methods
-    func employeeWithLogin(login: String, token: String, completion: @escaping EmployeeCallback) {
+    func employeeWithLogin(login: String, token: String, completion: @escaping NetworkCallback) {
         guard let url = URL(string: "\(baseURL)/profile/\(login)?format=json") else {
             completion { throw TecnicalError.invalidURL }
             
@@ -29,44 +29,40 @@ struct PeopleServer: PeopleServerProtocol {
         let request = authenticatedRequest(url: url, token: token)
         
         let task = session.dataTask(with: request) { (data, response, error) in
-            do {
-                guard error == nil else {
-                    completion { throw TecnicalError.requestError }
-                    
-                    return
-                }
-                guard let httpResponse = response as? HTTPURLResponse else {
-                    completion { throw TecnicalError.requestError }
-                    
-                    return
-                }
-                guard let dataResponse = data else {
-                    completion { throw TecnicalError.requestError }
-                    
-                    return
-                }
-                
-                switch httpResponse.statusCode {
-                case 200...299:
-                    guard let json = try JSONSerialization.jsonObject(with: dataResponse, options: .mutableLeaves) as? NSDictionary else {
-                        completion { throw TecnicalError.requestError } 
-                        
-                        return
-                    }
-                    
-                    completion { json as? [String: AnyObject] }
-                default:
-                    completion { throw TecnicalError.requestError }
-                }
-            } catch {
-                completion { throw TecnicalError.requestError }
-            }
+            self.handleResponse(data: data, response: response, error: error, completion: completion)
         }
         
         task.resume()
     }
     
-    func searchEmployees(search: String, token: String, completion: @escaping SearchCallback) {
+    func handleResponse(data: Data?, response: URLResponse?, error: Error?, completion: @escaping NetworkCallback) {
+        guard error == nil else {
+            completion { throw TecnicalError.requestError }
+            
+            return
+        }
+        guard let httpResponse = response as? HTTPURLResponse else {
+            completion { throw TecnicalError.requestError }
+            
+            return
+        }
+        guard let responseData = data else {
+            completion { throw TecnicalError.requestError }
+            
+            return
+        }
+        
+        switch httpResponse.statusCode {
+        case 200...299:
+            completion { (httpResponse.statusCode, responseData) }
+        case 401:
+            completion { throw TecnicalError.authenticationFailed }
+        default:
+            completion { throw TecnicalError.requestError }
+        }
+    }
+    
+    func searchEmployees(search: String, token: String, completion: @escaping NetworkCallback) {
         guard let url = URL(string: "\(baseURL)/search/json/?format=associative&q=\(search)") else {
             completion { throw TecnicalError.invalidURL }
             
@@ -77,40 +73,7 @@ struct PeopleServer: PeopleServerProtocol {
         let request = authenticatedRequest(url: url, token: token)
         
         let task = session.dataTask(with: request) { (data, response, error) in
-            do {
-                guard error == nil else {
-                    completion { throw TecnicalError.requestError }
-                    
-                    return
-                }
-                guard let httpResponse = response as? HTTPURLResponse else {
-                    completion { throw TecnicalError.requestError }
-                    
-                    return
-                }
-                guard let dataResponse = data else {
-                    completion { throw TecnicalError.requestError }
-                    
-                    return
-                }
-                
-                switch httpResponse.statusCode {
-                case 200...299:
-                    guard let json = try JSONSerialization.jsonObject(with: dataResponse, options: .mutableLeaves) as? NSDictionary else {
-                        completion { throw TecnicalError.requestError }
-                        
-                        return
-                    }
-                    
-                    completion { json as? [String: AnyObject] }
-                case 401:
-                    completion { throw TecnicalError.authenticationFailed }
-                default:
-                    completion { throw TecnicalError.requestError }
-                }
-            } catch {
-                completion { throw TecnicalError.requestError }
-            }
+            self.handleResponse(data: data, response: response, error: error, completion: completion)
         }
         
         task.resume()

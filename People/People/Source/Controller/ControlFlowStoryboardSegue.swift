@@ -23,9 +23,9 @@ class ControlFlowStoryboardSegue: UIStoryboardSegue {
     
     private func showEmployeeDetails() {
         guard let searchViewController = source as? SearchViewController else { return }
-        guard let employeeViewController = destination as? EmployeeViewController else { return }
+        guard let employeeViewController = destination as? EmployeeSwiftViewController else { return }
         guard let login = searchViewController.selectedLogin else { return }
-        employeeViewController.load(withLogin: login)
+        employeeViewController.login = login
         searchViewController.navigationController?.pushViewController(employeeViewController, animated: true)
     }
 }

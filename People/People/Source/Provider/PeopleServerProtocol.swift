@@ -9,7 +9,7 @@
 import Foundation
 
 protocol PeopleServerProtocol {
-    func employeeWithLogin(login: String, token: String, completion: @escaping EmployeeCallback)
-    func searchEmployees(search: String, token: String, completion: @escaping SearchCallback)
+    func employeeWithLogin(login: String, token: String, completion: @escaping NetworkCallback)
+    func searchEmployees(search: String, token: String, completion: @escaping NetworkCallback)
     func requestForEmployeeImage(login: String, token: String) -> URLRequest?
 }

@@ -8,7 +8,11 @@
 
 import UIKit
 
-class SearchView: UIView {
+class SearchView: UIView, ViewSpinnable {
+    var loadingView = UIView()
+    var spinner = UIActivityIndicatorView()
+    var loadingLabel = UILabel()
+    
     @IBOutlet private weak var searchTextField: UITextField!
     @IBOutlet private weak var employeeTableView: UITableView!
     
@@ -43,5 +47,15 @@ extension SearchView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let login = employees[indexPath.row].login.string
         delegate?.didSelectEmployee(login: login)
+    }
+}
+
+extension SearchView: ViewSpinnableDelegate {
+    func willSetLoadingScreen() {
+        self.employeeTableView.separatorStyle = .none
+    }
+    
+    func didRemoveLoadingScreen() {
+        self.employeeTableView.separatorStyle = .singleLine
     }
 }
